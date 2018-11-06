@@ -57,4 +57,4 @@ const styles = {
   }
 };
 
-export default FormUserDetails;
+export default Confirm;
