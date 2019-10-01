@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from '@material-ui/core/AppBar';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export class FormPersonalDetails extends Component {
   continue = e => {
@@ -22,48 +22,42 @@ export class FormPersonalDetails extends Component {
         <React.Fragment>
           <AppBar title="Enter Personal Details" />
           <TextField
-            hintText="Enter Your Occupation"
-            floatingLabelText="Occupation"
+            placeholder="Enter Your Occupation"
+            label="Occupation"
             onChange={handleChange('occupation')}
             defaultValue={values.occupation}
           />
           <br />
           <TextField
-            hintText="Enter Your City"
-            floatingLabelText="City"
+            placeholder="Enter Your City"
+            label="City"
             onChange={handleChange('city')}
             defaultValue={values.city}
           />
           <br />
           <TextField
-            hintText="Enter Your Bio"
-            floatingLabelText="Bio"
+            placeholder="Enter Your Bio"
+            label="Bio"
             onChange={handleChange('bio')}
             defaultValue={values.bio}
           />
           <br />
-          <RaisedButton
-            label="Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
-          <RaisedButton
-            label="Back"
-            primary={false}
-            style={styles.button}
+       
+          <Button
+            color="secondary"
+            variant="contained"
             onClick={this.back}
-          />
+          >Back</Button>
+
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={this.continue}
+          >Continue</Button>
         </React.Fragment>
       </MuiThemeProvider>
     );
   }
 }
-
-const styles = {
-  button: {
-    margin: 15
-  }
-};
 
 export default FormPersonalDetails;

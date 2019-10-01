@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from '@material-ui/core/AppBar';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export class FormUserDetails extends Component {
   continue = e => {
@@ -17,42 +17,35 @@ export class FormUserDetails extends Component {
         <React.Fragment>
           <AppBar title="Enter User Details" />
           <TextField
-            hintText="Enter Your First Name"
-            floatingLabelText="First Name"
+            placeholder="Enter Your First Name"
+            label="First Name"
             onChange={handleChange('firstName')}
             defaultValue={values.firstName}
           />
           <br />
           <TextField
-            hintText="Enter Your Last Name"
-            floatingLabelText="Last Name"
+            placeholder="Enter Your Last Name"
+            label="Last Name"
             onChange={handleChange('lastName')}
             defaultValue={values.lastName}
           />
           <br />
           <TextField
-            hintText="Enter Your Email"
-            floatingLabelText="Email"
+            placeholder="Enter Your Email"
+            label="Email"
             onChange={handleChange('email')}
             defaultValue={values.email}
           />
           <br />
-          <RaisedButton
-            label="Continue"
-            primary={true}
-            style={styles.button}
+          <Button
+            color="primary"
+            variant="contained"
             onClick={this.continue}
-          />
+          >Continue</Button>
         </React.Fragment>
       </MuiThemeProvider>
     );
   }
 }
-
-const styles = {
-  button: {
-    margin: 15
-  }
-};
 
 export default FormUserDetails;
