@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -19,11 +19,11 @@ export class FormPersonalDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider >
-        <React.Fragment>
-        <Dialog 
-            open="true"
-            fullWidth="true"
+      <MuiThemeProvider>
+        <>
+          <Dialog
+            open
+            fullWidth
             maxWidth='sm'
           >
             <AppBar title="Enter Personal Details" />
@@ -33,7 +33,7 @@ export class FormPersonalDetails extends Component {
               onChange={handleChange('occupation')}
               defaultValue={values.occupation}
               margin="normal"
-              fullWidth="true"
+              fullWidth
             />
             <br />
             <TextField
@@ -42,7 +42,7 @@ export class FormPersonalDetails extends Component {
               onChange={handleChange('city')}
               defaultValue={values.city}
               margin="normal"
-							fullWidth="true"
+              fullWidth
             />
             <br />
             <TextField
@@ -51,10 +51,10 @@ export class FormPersonalDetails extends Component {
               onChange={handleChange('bio')}
               defaultValue={values.bio}
               margin="normal"
-							fullWidth="true"
+              fullWidth
             />
             <br />
-        
+
             <Button
               color="secondary"
               variant="contained"
@@ -67,7 +67,7 @@ export class FormPersonalDetails extends Component {
               onClick={this.continue}
             >Continue</Button>
           </Dialog>
-        </React.Fragment>
+        </>
       </MuiThemeProvider>
     );
   }

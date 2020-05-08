@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -14,11 +14,11 @@ export class FormUserDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider >
-        <React.Fragment>
-          <Dialog 
-            open="true"
-            fullWidth="true"
+      <MuiThemeProvider>
+        <>
+          <Dialog
+            open
+            fullWidth
             maxWidth='sm'
           >
             <AppBar title="Enter User Details" />
@@ -28,7 +28,7 @@ export class FormUserDetails extends Component {
               onChange={handleChange('firstName')}
               defaultValue={values.firstName}
               margin="normal"
-							fullWidth="true"
+              fullWidth
             />
             <br />
             <TextField
@@ -37,7 +37,7 @@ export class FormUserDetails extends Component {
               onChange={handleChange('lastName')}
               defaultValue={values.lastName}
               margin="normal"
-							fullWidth="true"
+              fullWidth
             />
             <br />
             <TextField
@@ -46,7 +46,7 @@ export class FormUserDetails extends Component {
               onChange={handleChange('email')}
               defaultValue={values.email}
               margin="normal"
-							fullWidth="true"
+              fullWidth
             />
             <br />
             <Button
@@ -55,7 +55,7 @@ export class FormUserDetails extends Component {
               onClick={this.continue}
             >Continue</Button>
           </Dialog>
-        </React.Fragment>
+        </>
       </MuiThemeProvider>
     );
   }
